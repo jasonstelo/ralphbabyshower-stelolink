@@ -1,4 +1,4 @@
 venmo-link: https://venmo.com/u/pvillalta929
-zelle-pay: https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiUEFPTEEiLCJ0b2tlbiI6InB2aWxsYWx0YTkyOUBob3RtYWlsLmNvbSJ9
+zelle-pay:https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiUEFPTEEiLCJ0b2tlbiI6InB2aWxsYWx0YTkyOUBob3RtYWlsLmNvbSJ9 
 amazon-babyreglink:https://www.amazon.com/baby-reg/paola-villalta-september-2026-brooklyn/3154SRS2H6IL
 
