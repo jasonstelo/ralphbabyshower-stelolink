@@ -13,6 +13,7 @@
     :root {
       --cream:      #FBF5EF;
       --brown:      #44291E;
+      --brown-soft: #7C5849;
       --gold:       #B8924A;
       --gold-light: #D0AE6A;
       --rose-deep:  #B06E63;
@@ -25,123 +26,293 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── TOP BAR ── */
-    .top-bar {
-      padding: 20px 32px;
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 52vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-image: url('Photos/girl-table.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      overflow: hidden;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.52) 100%
+      );
     }
 
     .back-link {
+      position: absolute;
+      top: 22px;
+      left: 28px;
+      z-index: 10;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--gold);
-      transition: opacity 0.2s ease;
+      color: rgba(255,255,255,0.80);
+      transition: color 0.2s ease;
     }
+    .back-link:hover { color: #fff; }
 
-    .back-link:hover {
-      opacity: 0.7;
-    }
-
-    /* ── HEADER ── */
-    .page-header {
+    .hero-inner {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 40px 32px 36px;
+      padding: 56px 40px 64px;
     }
 
     .eyebrow {
       display: block;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
-      letter-spacing: 0.42em;
+      letter-spacing: 0.46em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-light);
       font-weight: 500;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .page-title {
+    .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(44px, 7vw, 72px);
+      font-size: clamp(52px, 9vw, 96px);
       font-weight: 300;
       font-style: italic;
-      color: var(--brown);
+      color: #fff;
       line-height: 1;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
     }
 
-    .header-rule {
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      max-width: 540px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .hero-rule {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
     }
-    .header-rule::before,
-    .header-rule::after {
+    .hero-rule::before,
+    .hero-rule::after {
       content: '';
       width: 48px;
       height: 1px;
-      background: var(--gold-light);
+      background: rgba(208,174,106,0.6);
     }
     .rule-diamond {
       display: inline-block;
       width: 6px;
       height: 6px;
+      background: var(--gold-light);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── MENU CONTENT ── */
+    .menu-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .menu-sec {
+      padding: 64px 0 60px;
+      border-bottom: 1px solid rgba(208,174,106,0.30);
+    }
+    .menu-sec:last-of-type { border-bottom: none; }
+
+    .sec-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .sec-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(14px, 1.8vw, 17px);
+      font-style: italic;
+      color: var(--rose-deep);
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .sec-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 22px 0 36px;
+    }
+    .sec-rule::before,
+    .sec-rule::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold-light);
+    }
+    .sec-rule-diamond {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
       background: var(--gold);
       transform: rotate(45deg);
+      flex-shrink: 0;
     }
 
-    /* ── PDF EMBED ── */
-    .pdf-wrap {
-      width: min(900px, 95vw);
-      margin: 0 auto;
-      padding: 0 0 12px;
+    /* ── ITEM GRID ── */
+    .item-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px 24px;
     }
 
-    .pdf-embed {
-      display: block;
-      width: 100%;
-      height: 85vh;
-      border: 1px solid var(--gold-light);
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .pdf-fallback {
-      margin-top: 14px;
-      text-align: center;
+    .item-grid li {
+      font-family: 'DM Sans', sans-serif;
       font-size: 12px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brown);
+      text-align: center;
+      line-height: 1.55;
+      padding: 6px 4px;
+    }
+
+    /* ── PREMIUM BLOCK ── */
+    .premium-block {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(184,146,74,0.25);
+      text-align: center;
+    }
+
+    .premium-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.44em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .premium-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--brown-soft);
+      margin-bottom: 12px;
+    }
+
+    .premium-items {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    /* ── PACKAGE UPGRADES ── */
+    .pkg-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 8px;
+    }
+
+    .pkg-card {
+      background: rgba(184,146,74,0.06);
+      border: 1px solid rgba(184,146,74,0.22);
+      border-radius: 12px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+
+    .pkg-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.44em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .pkg-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--brown-soft);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .pkg-charge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--gold);
     }
 
-    .pdf-fallback a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-light);
-      padding-bottom: 2px;
-      transition: opacity 0.2s ease;
+    /* ── PDF DOWNLOAD ── */
+    .pdf-dl {
+      text-align: center;
+      padding: 20px 0 72px;
     }
 
-    .pdf-fallback a:hover {
-      opacity: 0.7;
+    .pdf-dl a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,146,74,0.4);
+      padding-bottom: 3px;
+      transition: opacity 0.2s ease;
     }
+    .pdf-dl a:hover { opacity: 0.65; }
 
     /* ── FOOTER ── */
     .page-footer {
+      background: rgba(184,146,74,0.07);
+      border-top: 1px solid rgba(184,146,74,0.20);
       text-align: center;
-      padding: 48px 32px 56px;
+      padding: 52px 32px 60px;
     }
 
     .footer-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 4vw, 40px);
+      font-size: clamp(30px, 4.5vw, 44px);
       font-weight: 300;
       font-style: italic;
       color: var(--brown);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .footer-sub {
@@ -151,27 +322,260 @@
       color: var(--gold);
       opacity: 0.85;
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .menu-body { padding: 0 20px 64px; }
+      .item-grid { grid-template-columns: 1fr; }
+      .pkg-cards { grid-template-columns: 1fr; }
+      .menu-sec { padding: 48px 0 44px; }
+      .hero-inner { padding: 40px 24px 52px; }
+      .pkg-card { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
+  <!-- HERO -->
+  <section class="hero">
     <a href="index.html" class="back-link">&larr; Back to Invitation</a>
-  </div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <span class="eyebrow">A Taste of Home</span>
+      <h1 class="hero-title">The Menu</h1>
+      <p class="hero-subtitle">This menu is a blend of Peruvian and Dominican foods, bringing together the cultures of our newborn.</p>
+      <div class="hero-rule"><span class="rule-diamond"></span></div>
+    </div>
+  </section>
 
-  <header class="page-header">
-    <span class="eyebrow">A Taste of Home</span>
-    <h1 class="page-title">The Menu</h1>
-    <div class="header-rule"><span class="rule-diamond"></span></div>
-  </header>
+  <!-- MENU BODY -->
+  <div class="menu-body">
 
-  <div class="pdf-wrap">
-    <embed class="pdf-embed" src="pdf-of-menu.pdf" type="application/pdf">
-    <p class="pdf-fallback">
-      <a href="pdf-of-menu.pdf" target="_blank" rel="noopener">Open the menu (PDF)</a>
-    </p>
-  </div>
+    <!-- CHICKEN -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Chicken</h2>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Chicken Francese</li>
+        <li>Chicken alla Vodka</li>
+        <li>Hawaiian Chicken</li>
+        <li>Chicken Parmesan</li>
+        <li>Chicken Cacciatore</li>
+        <li>Fajita Chicken</li>
+        <li>Chicken Marsala</li>
+        <li>BBQ Chicken</li>
+        <li>Balsamic Grilled Chicken w/ Fresh Mozz. &amp; Roasted Peppers</li>
+        <li>BBQ Chicken Wings</li>
+        <li>Grilled Chicken Breast</li>
+        <li>Curry Chicken</li>
+        <li>Oriental Chicken with Broccoli</li>
+        <li>Fried Chicken</li>
+        <li>Jerk Chicken</li>
+        <li>Roasted Chicken</li>
+        <li>Chicken Cordon Bleu</li>
+        <li>Breaded Chicken Cutlet w/ Fresh Mozz. &amp; Red Peppers</li>
+        <li>Chicken Florentine</li>
+        <li>Grilled Chicken Breast w/ Melted Mozzarella</li>
+        <li>Brown Stew Chicken</li>
+        <li>Chicken Piccata</li>
+        <li>Chicken &amp; Sausage Paella</li>
+        <li>Oriental Chicken Stir Fry</li>
+        <li>Chicken Sorrentino</li>
+        <li>Chicken Bianco</li>
+        <li>Grilled Chicken w/ Vegetables</li>
+      </ul>
+    </section>
 
+    <!-- BEEF -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Beef</h2>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Beef Marsala</li>
+        <li>Teriyaki Beef</li>
+        <li>Oriental Beef Stir Fry</li>
+        <li>Oriental Beef w/ Broccoli</li>
+        <li>Beef Stew</li>
+        <li>Beef Burgundy</li>
+        <li>Pot Roast</li>
+        <li>Meatloaf</li>
+        <li>Italian Meatballs Parm.</li>
+        <li>Sweet &amp; Sour Meatballs</li>
+        <li>Carne Guisada</li>
+        <li>Sliced Steak</li>
+        <li>Steak Pizzaiola</li>
+        <li>Sliced Steak w/ Mushrooms &amp; Onions</li>
+        <li>Sirloin Steak w/ Peppers &amp; Onions</li>
+        <li>Steak Fajita</li>
+        <li>Beef Stroganoff</li>
+        <li>BBQ Beef</li>
+      </ul>
+      <div class="premium-block">
+        <p class="premium-label">Premium Beef</p>
+        <p class="premium-note">Substitute any standard Beef for an additional per person charge</p>
+        <p class="premium-items">Boneless Short Ribs &nbsp;&middot;&nbsp; Brisket</p>
+      </div>
+    </section>
+
+    <!-- PORK -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Pork</h2>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Pernil (Roasted Pork)</li>
+        <li>Jerk Ribs</li>
+        <li>Sausage and Peppers</li>
+        <li>Sweet &amp; Sour Pork</li>
+        <li>Fried Pork Chops</li>
+        <li>Cajun Loin of Pork</li>
+        <li>Virginia Ham</li>
+        <li>Stuffed Loin of Pork</li>
+        <li>Sausage and Potato</li>
+      </ul>
+      <div class="premium-block">
+        <p class="premium-label">Premium Pork</p>
+        <p class="premium-note">Substitute any standard Pork for an additional per person charge</p>
+        <p class="premium-items">Pulled Pork &nbsp;&middot;&nbsp; BBQ Ribs</p>
+      </div>
+    </section>
+
+    <!-- PASTA -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Pasta</h2>
+      <p class="sec-note">Choose One Pasta Dish</p>
+      <p class="sec-note">Your choice of pasta: Penne, Spaghetti, or Linguine</p>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Penne alla Vodka</li>
+        <li>Pasta Marinara</li>
+        <li>Fettuccine Alfredo</li>
+        <li>Fettuccine Primavera</li>
+        <li>Baked Ziti</li>
+        <li>Cheese Ravioli</li>
+        <li>Tortellini alla Vodka</li>
+        <li>Tortellini Marinara</li>
+        <li>Mac and Cheese</li>
+        <li>Penne Bolognese</li>
+        <li>Penne Pesto</li>
+        <li>Oriental Noodles</li>
+        <li>Tortellini Pesto</li>
+        <li>Pasta w/ Broccoli, Garlic &amp; Oil</li>
+        <li>Linguine w/ Clam Sauce</li>
+      </ul>
+      <div class="premium-block">
+        <p class="premium-label">Premium Pasta</p>
+        <p class="premium-note">Substitute any standard pasta for an additional per person charge</p>
+        <p class="premium-items">Meat, Veggie or Cheese Lasagna &nbsp;&middot;&nbsp; Eggplant Parm</p>
+      </div>
+    </section>
+
+    <!-- SIDE DISHES -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Side Dishes</h2>
+      <p class="sec-note">Choose Two Side Dishes</p>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Rice Pilaf</li>
+        <li>Scalloped Cheesy Potatoes</li>
+        <li>Roasted Rosemary Potatoes</li>
+        <li>Mashed Potatoes</li>
+        <li>Garlic Mashed Potatoes</li>
+        <li>Sweet Mashed Potatoes w/ Marshmallow</li>
+        <li>Candied Yams</li>
+        <li>White, Yellow or Brown Rice (w/ Red or Black Beans)</li>
+        <li>Arroz con Gandules</li>
+        <li>Arroz Moro</li>
+        <li>Rice and Vegetables</li>
+        <li>Pork or Chicken Fried Rice (Spanish or Asian)</li>
+        <li>Rice and Peas</li>
+        <li>Wild Rice</li>
+        <li>Rice w/ Spinach &amp; Mushrooms</li>
+        <li>Mixed Vegetables</li>
+        <li>Sauteed Broccoli w/ Garlic &amp; Oil</li>
+        <li>Sauteed Corn w/ Butter</li>
+        <li>Creamed Spinach</li>
+        <li>Balsamic Grilled Veggies</li>
+        <li>Oriental Stir Fry Veggies</li>
+        <li>String Beans Almondine</li>
+        <li>Corn on the Cob</li>
+        <li>Glazed Carrots</li>
+        <li>Escarole and Beans</li>
+        <li>Steamed Vegetables</li>
+      </ul>
+    </section>
+
+    <!-- SEAFOOD -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Seafood</h2>
+      <p class="sec-note">Substitute any standard entr&eacute;e for an additional per person charge</p>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Orange Dill Salmon</li>
+        <li>Seafood Fra Diablo</li>
+        <li>Shrimp Scampi</li>
+        <li>Filet of Sole Almondine</li>
+        <li>Seafood Paella</li>
+        <li>Filet of Sole Francese</li>
+        <li>Sole Florentine</li>
+        <li>Salmon Dijon</li>
+        <li>Shrimp Francese</li>
+        <li>Citrus Salmon</li>
+        <li>Blackened Salmon w/ Mango</li>
+      </ul>
+    </section>
+
+    <!-- APPETIZERS -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Appetizers</h2>
+      <p class="sec-note">Enjoy any of our hors d&rsquo;&oelig;uvres for an additional per person charge</p>
+      <p class="sec-note">Choice of any three served</p>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <ul class="item-grid">
+        <li>Zucchini Sticks</li>
+        <li>Buffalo Wings (Hot, Medium or Mild)</li>
+        <li>Mozzarella Sticks</li>
+        <li>Chicken Kebab</li>
+        <li>Chicken Teriyaki Skewers</li>
+        <li>Beef Skewers</li>
+        <li>Pigs in a Blanket</li>
+        <li>Pizza Squares</li>
+        <li>Bruschetta</li>
+        <li>Empanadas (Beef or Cheese)</li>
+        <li>Mini Spinach Wraps</li>
+        <li>Crab Cakes</li>
+        <li>Jamaican Beef Patties</li>
+        <li>Sweet &amp; Sour Meatballs</li>
+        <li>Dumplings (Chicken, Pork or Vegetable)</li>
+        <li>Shrimp Cocktail (additional charge applies)</li>
+      </ul>
+    </section>
+
+    <!-- PACKAGE UPGRADES -->
+    <section class="menu-sec">
+      <h2 class="sec-heading">Package Upgrades</h2>
+      <div class="sec-rule"><span class="sec-rule-diamond"></span></div>
+      <div class="pkg-cards">
+        <div class="pkg-card">
+          <p class="pkg-label">Grand Buffet</p>
+          <p class="pkg-desc">Includes your choice of an additional standard pasta or a standard side dish. A lavish dessert table featuring a fresh fruit platter, a selection of Italian cookies, and an array of delicate Italian mini pastries. Coffee and tea service are also provided, elegantly presented with indoor sparklers to delight and impress your guests.</p>
+          <p class="pkg-charge">Additional Per Person Charge</p>
+        </div>
+        <div class="pkg-card">
+          <p class="pkg-label">Supreme Buffet</p>
+          <p class="pkg-desc">Includes your choice of an additional standard pasta or a standard side dish. A lavish Viennese Table featuring a fresh fruit platter, an assortment of Italian cookies, delicate Italian mini pastries, assorted custards and puddings, cheesecake, chocolate cake, carrot cake, and an array of mixed candies. Coffee and tea service are included, all beautifully presented with indoor sparklers to captivate and impress your guests.</p>
+          <p class="pkg-charge">Additional Per Person Charge</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PDF DOWNLOAD -->
+    <div class="pdf-dl">
+      <a href="pdf-of-menu.pdf" download>Download the Menu (PDF)</a>
+    </div>
+
+  </div><!-- /menu-body -->
+
+  <!-- FOOTER -->
   <footer class="page-footer">
     <p class="footer-names">Ralph &amp; Paola</p>
     <p class="footer-sub">July 25, 2026 &nbsp;&middot;&nbsp; It&#39;s a Girl</p>
