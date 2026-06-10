@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Menu &mdash; Ralph &amp; Paola Baby Shower</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:      #FBF5EF;
+      --brown:      #44291E;
+      --gold:       #B8924A;
+      --gold-light: #D0AE6A;
+      --rose-deep:  #B06E63;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      padding: 20px 32px;
+    }
+
+    .back-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.7;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      text-align: center;
+      padding: 40px 32px 36px;
+    }
+
+    .eyebrow {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 72px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .header-rule::before,
+    .header-rule::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: var(--gold-light);
+    }
+    .rule-diamond {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── PDF EMBED ── */
+    .pdf-wrap {
+      width: min(900px, 95vw);
+      margin: 0 auto;
+      padding: 0 0 12px;
+    }
+
+    .pdf-embed {
+      display: block;
+      width: 100%;
+      height: 85vh;
+      border: 1px solid var(--gold-light);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .pdf-fallback {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .pdf-fallback a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 2px;
+      transition: opacity 0.2s ease;
+    }
+
+    .pdf-fallback a:hover {
+      opacity: 0.7;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      padding: 48px 32px 56px;
+    }
+
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      margin-bottom: 10px;
+    }
+
+    .footer-sub {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="index.html" class="back-link">&larr; Back to Invitation</a>
+  </div>
+
+  <header class="page-header">
+    <span class="eyebrow">A Taste of Home</span>
+    <h1 class="page-title">The Menu</h1>
+    <div class="header-rule"><span class="rule-diamond"></span></div>
+  </header>
+
+  <div class="pdf-wrap">
+    <embed class="pdf-embed" src="pdf-of-menu.pdf" type="application/pdf">
+    <p class="pdf-fallback">
+      <a href="pdf-of-menu.pdf" target="_blank" rel="noopener">Open the menu (PDF)</a>
+    </p>
+  </div>
+
+  <footer class="page-footer">
+    <p class="footer-names">Ralph &amp; Paola</p>
+    <p class="footer-sub">July 25, 2026 &nbsp;&middot;&nbsp; It&#39;s a Girl</p>
+  </footer>
+
+</body>
+</html>
